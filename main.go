@@ -59,7 +59,7 @@ func VideoByID(id string) (cr pornbox.ContentResource, err error) {
 		if title != "" {
 			return title
 		}
-		return fmt.Sprintf("Strmup Video %s", id)
+		return fmt.Sprintf("strmup_video_%s", id)
 	}(), Url: url}
 	return
 }
@@ -67,6 +67,8 @@ func VideoByID(id string) (cr pornbox.ContentResource, err error) {
 func main() {
 	id := flag.String("id", "", "")
 	url := flag.String("i", "", "")
+	name := flag.Bool("s", false, "")
+
 	flag.Parse()
 	if *id == "" && *url == "" {
 		fmt.Println(`*id == "" && *url == ""`)
@@ -77,6 +79,10 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
+	}
+	if *name {
+		fmt.Printf("%s %s", cr.Name, cr.Url)
+		return
 	}
 	fmt.Println(cr.Url)
 }
