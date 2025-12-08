@@ -1,0 +1,12 @@
+github.com/kissanjamgit/pornbox v0.0.0-20251208084658-b731a7683139 h1:d7HnlWRtmOyLgHIw/QEpymoqxU01Sitk9rFGWtGqSqs=
+github.com/kissanjamgit/pornbox v0.0.0-20251208084658-b731a7683139/go.mod h1:OGYByKcLRF8HFc+WBCQ79eM5yXIoi5eg/gPMkQnaKvc=
+github.com/tidwall/gjson v1.18.0 h1:FIDeeyB800efLX89e5a8Y0BNH+LOngJyGrIWxG2FKQY=
+github.com/tidwall/gjson v1.18.0/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
+github.com/tidwall/match v1.1.1 h1:+Ho715JplO36QYgwN9PGYNhgZvoUSc9X2c80KVTi+GA=
+github.com/tidwall/match v1.1.1/go.mod h1:eRSPERbgtNPcGhD8UCthc6PmLEQXEWd3PRB5JTxsfmM=
+github.com/tidwall/pretty v1.2.0 h1:RWIZEg2iJ8/g6fDDYzMpobmaoGh5OLl4AXtGUGPcqCs=
+github.com/tidwall/pretty v1.2.0/go.mod h1:ITEVvHYasfjBbM0u2Pg8T2nJnzm8xPwvNhhsoaGGjNU=
+golang.org/x/net v0.46.0 h1:giFlY12I07fugqwPuWJi68oOnpfqFnJIJzaIIm2JVV4=
+golang.org/x/net v0.46.0/go.mod h1:Q9BGdFy1y4nkUwiLvT5qtyhAnEHgnQ/zd8PfU6nc210=
+resty.dev/v3 v3.0.0-beta.4 h1:2O77oFymtA4NT8AY87wAaSgSGUBk2yvvM1qno9VRXZU=
+resty.dev/v3 v3.0.0-beta.4/go.mod h1:NTOerrC/4T7/FE6tXIZGIysXXBdgNqwMZuKtxpea9NM=
