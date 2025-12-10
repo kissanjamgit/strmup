@@ -8,6 +8,7 @@ import (
 	"reflect"
 	"regexp"
 
+	"github.com/atotto/clipboard"
 	"github.com/kissanjamgit/pornbox"
 	"resty.dev/v3"
 )
@@ -22,10 +23,10 @@ func New(url string) Strmup {
 
 func (s *Strmup) Video() (cr pornbox.ContentResource, err error) {
 	id := regexp.MustCompile("[^/]+$").FindString(s.url)
-	return VideoByID(id)
+	return videoByID(id)
 }
 
-func VideoByID(id string) (cr pornbox.ContentResource, err error) {
+func videoByID(id string) (cr pornbox.ContentResource, err error) {
 	client := resty.New()
 	defer client.Close()
 	url_ := fmt.Sprintf("https://strmup.to/ajax/stream?filecode=%s", id)
@@ -67,21 +68,58 @@ func VideoByID(id string) (cr pornbox.ContentResource, err error) {
 func main() {
 	id := flag.String("id", "", "")
 	url := flag.String("i", "", "")
+	c := flag.Bool("c", false, "")
 	name := flag.Bool("s", false, "")
 
 	flag.Parse()
-	if *id == "" && *url == "" {
-		fmt.Println(`*id == "" && *url == ""`)
-		os.Exit(1)
-	}
-	strmup := New(*url)
-	cr, err := strmup.Video()
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+	// fmt.Printf("id: %s, url: %s, c: %v, name: %v\n", *id, *url, *c, *name)
+
+	var cr pornbox.ContentResource
+	var err error
+	func() {
+		if *id != "" {
+			cr, err = videoByID(*id)
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+				return
+			}
+			return
+		}
+		var strmup Strmup
+		if *url != "" {
+			strmup = New(*url)
+			cr, err = strmup.Video()
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+				return
+			}
+			return
+		}
+		if *c {
+			var str string
+			str, err = clipboard.ReadAll()
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+				return
+			}
+
+			strmup = New(str)
+			cr, err = strmup.Video()
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+				return
+			}
+			return
+
+		}
+	}()
+
 	if *name {
-		fmt.Printf("%s %s", cr.Name, cr.Url)
+		fmt.Printf("%s|%s", cr.Name, cr.Url)
 		return
 	}
 	fmt.Println(cr.Url)

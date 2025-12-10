@@ -1,3 +1,5 @@
+github.com/atotto/clipboard v0.1.4 h1:EH0zSVneZPSuFR11BlR9YppQTVDbh5+16AmcJi4g1z4=
+github.com/atotto/clipboard v0.1.4/go.mod h1:ZY9tmq7sm5xIbd9bOK4onWV4S6X0u6GY7Vn0Yu86PYI=
 github.com/kissanjamgit/pornbox v0.0.0-20251208084658-b731a7683139 h1:d7HnlWRtmOyLgHIw/QEpymoqxU01Sitk9rFGWtGqSqs=
 github.com/kissanjamgit/pornbox v0.0.0-20251208084658-b731a7683139/go.mod h1:OGYByKcLRF8HFc+WBCQ79eM5yXIoi5eg/gPMkQnaKvc=
 github.com/tidwall/gjson v1.18.0 h1:FIDeeyB800efLX89e5a8Y0BNH+LOngJyGrIWxG2FKQY=
